@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.book;
-import com.mycompany.sistem.Menu;
 
 /**
  *
  * @author りおん塩田
  */
+
+@SuppressWarnings("java:S106")
 public class Komik extends Book {
     private String genre;
 
