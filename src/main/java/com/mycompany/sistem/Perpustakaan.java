@@ -4,16 +4,17 @@
  */
 package com.mycompany.sistem;
 
-import com.mycompany.book.Book;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mycompany.book.Book;
 
 /**
  *
  * @author りおん塩田
  */
 
-
+@SuppressWarnings("java:S106")
 public class Perpustakaan {
     public List<Book> koleksiBuku = new ArrayList<>();
     Menu menu = new Menu();

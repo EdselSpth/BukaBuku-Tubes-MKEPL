@@ -3,14 +3,18 @@
  */
 package com.mycompany.sistem;
 
-import java.util.Scanner;
-import com.mycompany.account.*;
 import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import com.mycompany.account.Admin;
+import com.mycompany.account.User;
 
 /**
  *
  * @author りおん塩田
  */
+
+@SuppressWarnings("java:S106")
 public class Main {
 
     public static void main(String[] args) {

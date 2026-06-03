@@ -8,6 +8,8 @@ package com.mycompany.book;
  *
  * @author りおん塩田
  */
+
+@SuppressWarnings("java:S106")
 public class Majalah extends Book {
     private String jenisMajalah;
 

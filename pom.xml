@@ -18,7 +18,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/EdselSpth/TUBES_MKEPL</url>
+            <url>https://maven.pkg.github.com/EdselSpth/BukaBuku-Tubes-MKEPL</url>
         </repository>
     </distributionManagement>
 

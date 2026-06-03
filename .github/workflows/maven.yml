@@ -10,9 +10,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: ["develop","feature"]
+    branches: ["develop", "main", "feature/**"]
   pull_request:
-    branches: ["develop", "feature"]
+    branches: ["develop", "main", "feature/**"]
 
 jobs:
   build:
@@ -36,6 +36,16 @@ jobs:
 
       - name: Analyze with SonarCloud / Continous Inspection
         env:
-          ACC_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.ACC_GITHUB_TOKEN }} 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=edselspth -Dsonar.projectKey=edselspth_Tugas12_MKEPL
+        run: mvn -B verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=edselspth -Dsonar.projectKey=EdselSpth_BukaBuku-Tubes-MKEPL
+
+  deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      if: github.base_ref == 'main' && github.event_name == 'pull_request'
+
+      steps:
+        - uses: actions/checkout@v4
+        - name: Simulasi Deploy ke GitHub Packages
+          run: echo "Simulasi deploy ke GitHub Packages berhasil!"
