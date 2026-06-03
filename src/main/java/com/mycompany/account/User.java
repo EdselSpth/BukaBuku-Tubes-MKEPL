@@ -4,27 +4,30 @@
  */
 package com.mycompany.account;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import com.mycompany.sistem.Menu;
-import com.mycompany.sistem.BookManagement;
-import com.mycompany.sistem.Pembelian;
-import com.mycompany.sistem.Perpustakaan;
-import com.mycompany.sistem.ReadBook;
+
 import com.mycompany.book.Book;
 import com.mycompany.book.Komik;
 import com.mycompany.book.Majalah;
 import com.mycompany.book.Novel;
 import com.mycompany.book.Pendidikan;
 import com.mycompany.book.Sejarah;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.InputMismatchException;
+import com.mycompany.sistem.BookManagement;
+import com.mycompany.sistem.Menu;
+import com.mycompany.sistem.Pembelian;
+import com.mycompany.sistem.Perpustakaan;
+import com.mycompany.sistem.ReadBook;
 
 /**
  *
  * @author りおん塩田
  */
+
+@SuppressWarnings("java:S106")
 public class User implements IAccount {
 
     private ArrayList<Account> userList;

@@ -4,16 +4,19 @@
  */
 package com.mycompany.account;
 
-import com.mycompany.sistem.BookManagement;
 import java.util.ArrayList;
-import java.util.Scanner;
-import com.mycompany.sistem.Menu;
 import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import com.mycompany.sistem.BookManagement;
+import com.mycompany.sistem.Menu;
 
 /**
  *
  * @author りおん塩田
  */
+
+@SuppressWarnings("java:S106")
 public class Admin implements IAccount {
 
     Menu menu = new Menu();
