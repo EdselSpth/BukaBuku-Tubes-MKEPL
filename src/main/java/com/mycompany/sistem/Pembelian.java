@@ -4,16 +4,18 @@
  */
 package com.mycompany.sistem;
 
-import com.mycompany.book.Book;
-import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
+
+import com.mycompany.book.Book;
 
 /**
  *
  * @author りおん塩田
  */
+
+@SuppressWarnings("java:S106")
 public class Pembelian {
 
     protected String idPembelian;

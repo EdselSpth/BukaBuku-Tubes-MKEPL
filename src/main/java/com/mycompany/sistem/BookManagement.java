@@ -4,19 +4,22 @@
  */
 package com.mycompany.sistem;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import com.mycompany.book.Book;
 import com.mycompany.book.Komik;
 import com.mycompany.book.Majalah;
 import com.mycompany.book.Novel;
 import com.mycompany.book.Pendidikan;
 import com.mycompany.book.Sejarah;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
  * @author りおん塩田
  */
+
+@SuppressWarnings("java:S106")
 public class BookManagement {
 
     private static BookManagement instance;
