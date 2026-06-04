@@ -44,9 +44,9 @@ Untuk menjalankan aplikasi BukaBuku ini secara lokal, pastikan **Java (minimal J
    ```bash
    mvn clean install
 
-3. Jalankan aplikasi melalui main class:
+3. Jalankan kompilasi dan aplikasi melalui main class:
    ```bash
-   mvn exec:java -Dexec.mainClass="com.mycompany.sistem.Main"
+   mvn compile exec:java '-Dexec.mainClass=com.mycompany.sistem.Main'
 
 4. Aplikasi CLI BukaBuku akan berjalan. Silakan login menggunakan kredensial Admin atau User yang disediakan
 
