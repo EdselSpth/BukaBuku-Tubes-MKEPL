@@ -6,13 +6,13 @@ BukaBuku adalah sebuah platform manajemen E-Book berbasis *Command Line Interfac
 - **User**: Dapat melihat daftar buku, mencari e-book, membeli buku, membaca buku di perpustakaan pribadi, hingga memberikan komentar atau melakukan *refund*.
 
 ## 2. Arsitektur Pipeline CI/CD
-Proyek ini mengimplementasikan alur CI/CD secara otomatis menggunakan **GitHub Actions** dengan file konfigurasi `.github/workflows/maven.yml`. Strategi *branching* memisahkan pengerjaan di branch `feature/**` dan `develop`, yang kemudian akan di-*merge* ke `main`.
+Proyek ini mengimplementasikan alur CI/CD secara otomatis menggunakan **GitHub Actions** dengan file konfigurasi `.github/workflows/maven.yml`. Strategi *branching* kami memisahkan pengerjaan di branch `feature/**` lalu di pull request ke `develop` untuk mengecek keseluruhan kode setelah pengerjaan fitur, yang kemudian akan di-*merge* ke `main` yang menjadi sisi branch dilihat pengguna.
 
 Arsitektur pipeline mencakup komponen berikut:
-* **Continuous Integration (CI):** Setiap kali terdapat *push* atau *pull request* ke branch `main`, `develop`, atau `feature/**`, GitHub Actions akan menyiapkan environment JDK 23 dan melakukan build proyek secara otomatis menggunakan Maven (`mvn -B clean package`). Status kesuksesan atau kegagalan build akan langsung dilaporkan.
+* **Continuous Integration (CI):** Setiap kali terdapat *push* atau *pull request* ke branch `main`, `develop`, atau `feature/**`, GitHub Actions akan menyiapkan environment JDK 23 dan melakukan build proyek secara otomatis menggunakan Maven (`mvn -B clean package`). yang selanjutnya apabila berhasil dia akan menampilkan informasi approved apabila gagal dia akan menampilkan informasi declined. khusus branch  `main` dan `develop` jika build gagal maka proses merged tidak dapat dilakukan
 * **Continuous Testing (CT):** Pengujian otomatis dengan JUnit dieksekusi setelah proses *build* Maven. Jika ada tes yang gagal, maka proses pipeline akan terhenti.
-* **Continuous Inspection:** Setelah proses build selesai, kode dianalisis kualitasnya secara statis menggunakan **SonarCloud**. Laporan *quality gate* dan inspeksi kode dikirim ke SonarCloud menggunakan *secrets* token repositori. Apabila kode tidak memenuhi standar kualitas, pipeline cicd akan gagal.
-* **Continuous Delivery (CD):** Proyek ini menggunakan pendekatan *Continuous Delivery*. Proses *deploy* dipicu ketika terjadi *pull request* yang ditargetkan ke branch `main` (`github.base_ref == 'main'`) dan ketika *job build* sebelumnya telah sukses. Perpindahan ke production (main) masih memerlukan *review* dan persetujuan PR secara manual.
+* **Continuous Inspection:** Setelah proses build selesai, kode dianalisis kualitasnya secara statis menggunakan **SonarCloud**. Laporan *quality gate* dan inspeksi kode dikirim ke SonarCloud. Apabila kode tidak memenuhi standar kualitas, pipeline cicd akan gagal.
+* **Continuous Delivery (CD):** Proyek ini menggunakan pendekatan *Continuous Delivery*. Proses *deploy* dipicu ketika terjadi *pull request* yang ditargetkan ke branch `main` (`github.base_ref == 'main'`) dan ketika *job build* sebelumnya telah sukses. Perpindahan ke production (main) masih memerlukan *review* dan persetujuan PR secara manual oleh satu reviewer.
 
 ## 3. Pembagian Tugas Anggota Kelompok
 
@@ -21,7 +21,7 @@ Arsitektur pipeline mencakup komponen berikut:
 | Edsel Septa Haryanto | 103022300016 | Setup maven, github secret, github action, Continous Inspection |
 | Tio Funny Tinambunan | 103022330036 | Continous Testing |
 | Raditya Maheswara Putra | 103022330026 | Continous Integration |
-| Dewanta Rahma Satria | 1030223 | Continous Delivery |
+| Dewanta Rahma Satria | 103022300071 | Continous Delivery |
 
 ## 4. Tools dan Teknologi yang Digunakan
 Berikut adalah daftar teknologi yang dimanfaatkan pada setiap tahapan pipeline:
