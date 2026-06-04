@@ -31,7 +31,7 @@ jobs:
       - name: Build and Compile / Continous Integration
         run: mvn -B clean package -DskipTests --file pom.xml
 
-      - name: Run Continuous Testing
+      - name: Testing / Continous Testing
         run: mvn -B test --file pom.xml
 
       - name: Upload test results
@@ -57,5 +57,5 @@ jobs:
 
       steps:
         - uses: actions/checkout@v4
-        - name: Simulasi Deploy ke GitHub Packages
+        - name: Deploy to package / continous deployment
           run: echo "Simulasi deploy ke GitHub Packages berhasil!"
