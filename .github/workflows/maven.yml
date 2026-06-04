@@ -28,7 +28,7 @@ jobs:
           distribution: "temurin"
           cache: maven
 
-      - name: Build and Compile (Tanpa Testing)
+      - name: Build and Compile / Continous Integration
         run: mvn -B package -DskipTests --file pom.xml
 
       - name: Update dependency graph
