@@ -56,4 +56,4 @@ Username : Admin123
 Password : Admin123
 2. User
 Username : User123
-Password : 123
+Password : User123
