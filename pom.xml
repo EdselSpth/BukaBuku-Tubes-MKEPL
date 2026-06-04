@@ -7,9 +7,9 @@
     
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version> <!-- Or whatever JUnit you're using. -->
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.3</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -27,5 +27,14 @@
         <maven.compiler.release>23</maven.compiler.release>
         <exec.mainClass>com.mycompany.tuibes.Tuibes</exec.mainClass>
     </properties>
-    <name>TUBES_MKEPL</name>
+    <name>BukaBuku-Tubes-MKEPL</name>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
