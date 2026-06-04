@@ -37,7 +37,7 @@ Untuk menjalankan aplikasi BukaBuku ini secara lokal, pastikan **Java (minimal J
 
 1. *Clone* repositori ini ke komputer lokal:
    ```bash
-   git clone [URL_REPOSITORI_GITHUB_KALIAN]
+   git clone https://github.com/EdselSpth/BukaBuku-Tubes-MKEPL.git
    cd BukaBuku-Tubes-MKEPL
 
 2. Lakukan build dan pastikan dependensi terunduh menggunakan Maven:
