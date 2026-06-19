@@ -19,7 +19,7 @@ import com.mycompany.book.Sejarah;
  * @author りおん塩田
  */
 
-@SuppressWarnings("java:S106")
+
 public class BookManagement {
 
     private static BookManagement instance;

@@ -9,7 +9,7 @@ package com.mycompany.book;
  * @author りおん塩田
  */
 
-@SuppressWarnings("java:S106")
+
 public class Pendidikan extends Book {
     private String namaBidang;
     private double discountRate = 0.35;
