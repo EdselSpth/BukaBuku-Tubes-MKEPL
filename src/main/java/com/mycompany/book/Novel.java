@@ -9,7 +9,6 @@ package com.mycompany.book;
  * @author りおん塩田
  */
 
-@SuppressWarnings("java:S106")
 public class Novel extends Book {
     private String genre;
 

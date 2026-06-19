@@ -9,7 +9,7 @@ package com.mycompany.sistem;
  * @author りおん塩田
  */
 
-@SuppressWarnings("java:S106")
+
 public class ReadBook {
     
     public void bacaBuku() {

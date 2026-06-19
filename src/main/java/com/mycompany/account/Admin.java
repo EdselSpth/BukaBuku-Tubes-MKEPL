@@ -16,7 +16,6 @@ import com.mycompany.sistem.Menu;
  * @author りおん塩田
  */
 
-@SuppressWarnings("java:S106")
 public class Admin implements IAccount {
 
     Menu menu = new Menu();
@@ -39,8 +38,6 @@ public class Admin implements IAccount {
         System.out.print("> Username : ");
         username = S.nextLine();
         System.out.print("> Password : ");
-        System.out.println("(Hint : Admin123, SelametKopling, Kobo1212)");
-        System.out.print("> ");
         String password = S.nextLine();
 
         for (int i = 0; i < adminList.size(); i++) {

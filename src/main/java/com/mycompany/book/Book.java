@@ -15,7 +15,7 @@ import com.mycompany.sistem.Comment;
  */
 
 
-@SuppressWarnings("java:S106")
+
 public abstract class Book implements IBook {
 
     private String judulBuku;
