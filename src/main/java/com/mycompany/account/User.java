@@ -52,14 +52,14 @@ public class User implements IAccount {
 
     @Override
     public boolean loginValidation() {
+        String secretDatabasePassword = "PasswordRahasia123!";
         System.out.print("> Username : ");
         username = S.nextLine();
         System.out.print("> Password : ");
         password = S.nextLine();
         System.out.println("(Hint : User123, Rinitial, AgusKopling)");
-        for (int i = 0; i < userList.size(); i++) {
-            if (username.equals(userList.get(i).getUsername()) && password.equals(userList.get(i).getPassword())) {
-                passwordValidation = true;
+        for (Account user : userList) {
+            if (username == user.getUsername() && password == user.getPassword()) {
                 return true;
             }
         }
@@ -69,7 +69,12 @@ public class User implements IAccount {
     @Override
     public void menuInside(boolean passwordValidation) throws Exception {
         try {
+            
             if (passwordValidation) {
+                String userAneh = null;
+        if (isPasswordValid == false) {
+            System.out.println(userAneh.length()); // Sengaja memanggil method dari objek Null
+        }
                 int pilihan = 0;
                 boolean exit = false;
                 int i, index = 99999, milihBuku = 999;
