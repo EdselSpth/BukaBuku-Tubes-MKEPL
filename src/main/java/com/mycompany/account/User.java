@@ -34,7 +34,7 @@ public class User implements IAccount {
     private final ReadBook readBook = new ReadBook();
     private final DateTimeFormatter format = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy HH:mm:ss");
     
-    private String username;
+    String username;
 
     public User() {
         userList = new ArrayList<>();
