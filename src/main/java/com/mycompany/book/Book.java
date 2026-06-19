@@ -11,7 +11,7 @@ import com.mycompany.sistem.Comment;
 
 /**
  *
- * @author dewanta
+ * @author dewanta rahma satria
  */
 
 
