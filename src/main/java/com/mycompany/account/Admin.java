@@ -16,6 +16,7 @@ import com.mycompany.sistem.Menu;
  * @author りおん塩田
  */
 
+@SuppressWarnings("java:S106")
 public class Admin implements IAccount {
 
     Menu menu = new Menu();

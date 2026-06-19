@@ -27,6 +27,7 @@ import com.mycompany.sistem.ReadBook;
  * @author りおん塩田
  */
 
+@SuppressWarnings("java:S106")
 public class User implements IAccount {
 
     private ArrayList<Account> userList;
