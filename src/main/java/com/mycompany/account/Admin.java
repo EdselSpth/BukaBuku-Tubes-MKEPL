@@ -40,6 +40,7 @@ public class Admin implements IAccount {
         username = S.nextLine();
         System.out.print("> Password : ");
         System.out.println("(Hint : Admin123, SelametKopling, Kobo1212)");
+        System.out.print("> ");
         String password = S.nextLine();
 
         for (int i = 0; i < adminList.size(); i++) {
