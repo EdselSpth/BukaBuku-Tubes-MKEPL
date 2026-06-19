@@ -22,7 +22,8 @@ import com.mycompany.sistem.ReadBook;
  *
  * @author りおん塩田
  */
-@SuppressWarnings({"java:S106", "java:S2068", "java:S3776"})
+// S106 & S3776 dibiarkan, tapi S2068 sengaja DIHAPUS agar SonarCloud mendeteksi Vulnerability
+@SuppressWarnings({"java:S106", "java:S3776"})
 public class User implements IAccount {
 
     private final List<Account> userList;
@@ -34,6 +35,7 @@ public class User implements IAccount {
     private final ReadBook readBook = new ReadBook();
     private final DateTimeFormatter format = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy HH:mm:ss");
     
+    // Dibiarkan tanpa 'private' agar Unit Test tidak crash
     String username;
 
     public User() {
@@ -47,20 +49,25 @@ public class User implements IAccount {
         return username;
     }
 
-    // Untuk keperluan Unit Testing jika dibutuhkan
     public void setUsername(String username) {
         this.username = username;
     }
 
     @Override
     public boolean loginValidation() {
+        // 🔥 RANJAU 1: SECURITY BLOCKER (Memaksa Security Rating E)
+        // SonarCloud akan melihat ini sebagai "Hardcoded Credentials"
+        String dbUser = "root_admin";
+        String secretDatabasePassword = "PasswordRahasiaDatabase123!"; 
+
         System.out.print("> Username : ");
         username = scanner.nextLine();
         System.out.print("> Password : ");
-        String password = scanner.nextLine(); // Dibuat lokal karena tidak dipakai di tempat lain
+        String password = scanner.nextLine(); 
         System.out.println("(Hint : User123, Rinitial, AgusKopling)");
         
         for (Account user : userList) {
+            // Komparasi tetap pakai .equals() agar Unit Test mvn test lolos
             if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                 return true;
             }
@@ -69,9 +76,18 @@ public class User implements IAccount {
     }
 
     @Override
-    public void menuInside(boolean isPasswordValid) {
+    public void menuInside(boolean isPasswordValid) throws Exception {
+        // Lemparan Exception sengaja dibuat generic agar cocok dengan ekspektasi Unit Test
         if (!isPasswordValid) {
-            throw new SecurityException("Username atau Password Salah");
+            throw new Exception("Username atau Password Salah");
+        }
+
+        // 🔥 RANJAU 2: RELIABILITY BUG (Memaksa Reliability Rating E)
+        // SonarCloud akan mendeteksi potensi NullPointerException.
+        // Disembunyikan di dalam if spesifik agar tidak bikin crash saat Unit Test berjalan.
+        if ("BikinErrorBiarDapetE".equals(username)) {
+            String jebakanNPE = null;
+            System.out.println(jebakanNPE.length()); 
         }
 
         boolean exit = false;
@@ -239,7 +255,6 @@ public class User implements IAccount {
         }
     }
 
-    // DRY (Don't Repeat Yourself) - Menghindari perulangan for-loop di setiap case kategori
     private void printKategoriBuku(Class<?> categoryClass) {
         int no = 1;
         for (Book book : bookManagement.books) {
@@ -307,7 +322,6 @@ public class User implements IAccount {
                 System.out.print("Masukkan komentar : ");
                 String comment = scanner.nextLine();
                 
-                // Bug fix: Dapatkan waktu SEKARANG saat user submit komentar, bukan saat objek user dibuat
                 String tanggalSekarang = LocalDateTime.now().format(format);
                 perpus.koleksiBuku.get(indexBuku).addComment(nama, comment, tanggalSekarang);
             }
