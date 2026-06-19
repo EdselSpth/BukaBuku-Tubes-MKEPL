@@ -56,6 +56,7 @@ public class User implements IAccount {
         username = S.nextLine();
         System.out.print("> Password : ");
         password = S.nextLine();
+        System.out.println("(Hint : User123, Rinitial, AgusKopling)");
         for (int i = 0; i < userList.size(); i++) {
             if (username.equals(userList.get(i).getUsername()) && password.equals(userList.get(i).getPassword())) {
                 passwordValidation = true;
