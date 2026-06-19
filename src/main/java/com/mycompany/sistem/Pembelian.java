@@ -15,7 +15,7 @@ import com.mycompany.book.Book;
  * @author りおん塩田
  */
 
-@SuppressWarnings("java:S106")
+
 public class Pembelian {
 
     protected String idPembelian;

@@ -11,11 +11,11 @@ import com.mycompany.sistem.Comment;
 
 /**
  *
- * @author りおん塩田
+ * @author dewanta rahma satria
  */
 
 
-@SuppressWarnings("java:S106")
+
 public abstract class Book implements IBook {
 
     private String judulBuku;
