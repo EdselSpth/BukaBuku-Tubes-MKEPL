@@ -11,7 +11,7 @@ import com.mycompany.sistem.Comment;
 
 /**
  *
- * @author りおん塩田
+ * @author dewanta
  */
 
 
