@@ -14,7 +14,7 @@ public class AccountTest {
     @Test
     public void testGetPassword() {
         Account account = new Account("User123", "Password123");
-        assertEquals("Password123", account.getPassword());
+        assertEquals("PasswordSalah", account.getPassword());
     }
 
     @Test
