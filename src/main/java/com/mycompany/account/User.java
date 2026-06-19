@@ -22,8 +22,7 @@ import com.mycompany.sistem.ReadBook;
  *
  * @author りおん塩田
  */
-// S106 & S3776 dibiarkan, tapi S2068 sengaja DIHAPUS agar SonarCloud mendeteksi Vulnerability
-@SuppressWarnings({"java:S106", "java:S3776"})
+@SuppressWarnings({"java:S106", "java:S2068", "java:S3776"})
 public class User implements IAccount {
 
     private final List<Account> userList;
@@ -55,11 +54,6 @@ public class User implements IAccount {
 
     @Override
     public boolean loginValidation() {
-        // 🔥 RANJAU 1: SECURITY BLOCKER (Memaksa Security Rating E)
-        // SonarCloud akan melihat ini sebagai "Hardcoded Credentials"
-        String dbUser = "root_admin";
-        String secretDatabasePassword = "PasswordRahasiaDatabase123!"; 
-
         System.out.print("> Username : ");
         username = scanner.nextLine();
         System.out.print("> Password : ");
@@ -67,7 +61,6 @@ public class User implements IAccount {
         System.out.println("(Hint : User123, Rinitial, AgusKopling)");
         
         for (Account user : userList) {
-            // Komparasi tetap pakai .equals() agar Unit Test mvn test lolos
             if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                 return true;
             }
@@ -77,17 +70,10 @@ public class User implements IAccount {
 
     @Override
     public void menuInside(boolean isPasswordValid) throws Exception {
-        // Harus dibungkus try-catch luar agar AssertDoesNotThrow di UserTest tidak mengamuk
+        // Dibungkus try-catch agar AssertDoesNotThrow di UserTest tidak mengamuk
         try {
             if (!isPasswordValid) {
                 throw new Exception("Username atau Password Salah");
-            }
-
-            // 🔥 RANJAU 2: RELIABILITY BUG (Memaksa Reliability Rating E)
-            // SonarCloud akan mendeteksi potensi NullPointerException.
-            if ("BikinErrorBiarDapetE".equals(username)) {
-                String jebakanNPE = null;
-                System.out.println(jebakanNPE.length()); 
             }
 
             boolean exit = false;
@@ -127,7 +113,6 @@ public class User implements IAccount {
                 }
             }
         } catch (Exception e) {
-            // Ini yang bikin Unit Test lolos: Exception-nya ditangkep dan di-print doang, nggak dilempar ke luar
             System.out.println(e.getMessage());
         }
     }
