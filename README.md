@@ -11,8 +11,8 @@ Proyek ini mengimplementasikan alur CI/CD secara otomatis menggunakan **GitHub A
 Arsitektur pipeline mencakup komponen berikut:
 * **Continuous Integration (CI):** Setiap kali terdapat *push* atau *pull request* ke branch `main`, `develop`, atau `feature/**`, GitHub Actions akan menyiapkan environment JDK 23 dan melakukan build proyek secara otomatis menggunakan Maven (`mvn -B clean package`). yang selanjutnya apabila berhasil dia akan menampilkan informasi approved apabila gagal dia akan menampilkan informasi declined. khusus branch  `main` dan `develop` jika build gagal maka proses merged tidak dapat dilakukan
 * **Continuous Testing (CT):** Pengujian otomatis dengan JUnit dieksekusi setelah proses *build* Maven. Jika ada tes yang gagal, maka proses pipeline akan terhenti.
-* **Continuous Inspection:** Setelah proses build selesai, kode dianalisis kualitasnya secara statis menggunakan **SonarCloud**. Laporan *quality gate* dan inspeksi kode dikirim ke SonarCloud. Apabila kode tidak memenuhi standar kualitas, pipeline cicd akan gagal.
-* **Continuous Delivery (CD):** Proyek ini menggunakan pendekatan *Continuous Delivery*. Proses *deploy* dipicu ketika terjadi *pull request* yang ditargetkan ke branch `main` (`github.base_ref == 'main'`) dan ketika *job build* sebelumnya telah sukses. Perpindahan ke production (main) masih memerlukan *review* dan persetujuan PR secara manual oleh satu reviewer.
+* **Continuous Inspection:** Setelah proses build selesai, kode dianalisis kualitasnya secara statis menggunakan **SonarCloud** yang di trigger ketika terjadi *pull request dan push* yang ditargetkan ke branch `main` . Laporan *quality gate* dan inspeksi kode dikirim ke SonarCloud. Apabila kode tidak memenuhi standar kualitas, pipeline cicd akan gagal.
+* **Continuous Delivery (CD):** Proyek ini menggunakan pendekatan *Continuous Delivery*. Proses *deploy* yang di trigger ketika terjadi *push/merge* yang ditargetkan ke branch `main` dan ketika *job build* sebelumnya telah sukses. Perpindahan ke production (main) masih memerlukan *review* dan persetujuan PR secara manual oleh satu reviewer.
 
 ## 3. Pembagian Tugas Anggota Kelompok
 
